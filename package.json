@@ -1,0 +1,92 @@
+{
+  "name": "wegnology-cli",
+  "version": "1.2.2",
+  "description": "WEGnology Command Line Interface",
+  "license": "MIT",
+  "homepage": "https://github.com/WEGnology/wegnology-cli#readme",
+  "author": "wegnology <hello@wegnology.com>",
+  "bugs": {
+    "url": "https://github.com/WEGnology/wegnology-cli"
+  },
+  "keywords": [
+    "IoT",
+    "platform",
+    "CLI"
+  ],
+  "bin": {
+    "wegnology": "./bin/wegnology.js"
+  },
+  "engines": {
+    "node": ">=8.3"
+  },
+  "scripts": {
+    "lint": "esw . --ext .js",
+    "lint:fix": "yarn lint --fix",
+    "lint:watch": "yarn lint --watch",
+    "precommit": "lint-staged",
+    "test": "mocha test 2>&1",
+    "reinstall": "rm -rf nodes_modules && yarn install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WEGnology/wegnology-cli.git"
+  },
+  "dependencies": {
+    "@rjhilgefort/export-dir": "^1.1.0",
+    "chalk": "^2.4.1",
+    "chokidar": "^2.0.4",
+    "cli-table3": "^0.5.1",
+    "commander": "^2.19.0",
+    "csv-stringify": "^5.3.0",
+    "death": "^1.1.0",
+    "error": "^7.0.2",
+    "find-file-up": "^2.0.1",
+    "form-data": "^2.3.3",
+    "fs-extra": "^7.0.1",
+    "glob": "^7.1.3",
+    "inquirer": "^6.2.0",
+    "js-yaml": "^3.12.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash-template": "^1.0.0",
+    "wegnology-rest": "^2.5.0",
+    "mime-types": "^2.1.21",
+    "minimatch": "^3.0.4",
+    "moment": "^2.22.2",
+    "omnibelt": "^1.3.1",
+    "pad": "^2.2.1",
+    "proper-lockfile": "^3.0.2",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
+    "rollbar": "^2.5.0",
+    "sanitize-filename": "^1.6.2",
+    "single-line-log": "^1.1.2",
+    "update-notifier": "^2.3.0"
+  },
+  "devDependencies": {
+    "@losant/eslint-config-losant": "1.3.6",
+    "husky": "^1.1.4",
+    "lint-staged": "^8.0.4",
+    "mocha": "^5.2.0",
+    "nock": "^10.0.2",
+    "rimraf": "^2.6.2",
+    "should": "^13.2.3",
+    "sinon": "^7.1.1"
+  },
+  "lint-staged": {
+    "*.js": "esw"
+  },
+  "eslintConfig": {
+    "extends": "@losant/eslint-config-losant/env/node"
+  },
+  "files": [
+    "bin/*",
+    "lib/*",
+    "commands/*",
+    "README.md"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
