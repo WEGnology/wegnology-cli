@@ -9,12 +9,13 @@ const {
 
 const API_TYPE = 'experienceViews';
 const COMMAND_TYPE = 'views';
+const template = require('lodash-template');
 const LOCAL_STATUS_PARAMS = [ '/**/*.hbs' ];
-const REMOTE_STATUS_PARAMS = [ 'views/${viewType}s/${name}.hbs', 'body' ]; // eslint-disable-line no-template-curly-in-string
+const REMOTE_STATUS_PARAMS = [ template('views/${viewType}s/${name}.hbs'), 'body' ]; // eslint-disable-line no-template-curly-in-string
 
 describe('#getStatusFunc', () => {
   it('should log out that there are no local files found', async () => {
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d/experience/views')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: 0, perPage: 1000 })
       .reply(200, {
@@ -51,7 +52,7 @@ describe('#getStatusFunc', () => {
   });
   it('should log out that there are new remote files', async () => {
     const spy = sinon.spy(log, 'stdout');
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d/experience/views')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: 0, perPage: 1000 })
       .reply(200, {
@@ -110,7 +111,7 @@ describe('#getStatusFunc', () => {
     await ensureDir('./views/layouts');
     await writeFile('./views/layouts/Example Layout.hbs', 'body');
     const spy = sinon.spy(log, 'stdout');
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d/experience/views')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: 0, perPage: 1000 })
       .reply(200, {

@@ -13,7 +13,7 @@ const inquirer = require('inquirer');
 
 describe('#ExperienceBootstrap', () => {
   it('should skip bootstrapping when skipping and confirming with a no', async () => {
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, {
@@ -60,7 +60,7 @@ describe('#ExperienceBootstrap', () => {
     message.should.equal(`${pad(c.yellow('Skip'), 13)}\tBootstrapping for this application Test Application.`);
   });
   it('should not bootstrap if it has already been completed', async () => {
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, {
@@ -104,7 +104,7 @@ describe('#ExperienceBootstrap', () => {
     message.should.equal(`${pad(c.yellow('Cannot Complete'), 13)}\tBootstrapping has already been completed for Test Application`);
   });
   it('should log out that pages were downloaded and bootstrapping completed', async () => {
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, {
@@ -134,7 +134,7 @@ describe('#ExperienceBootstrap', () => {
         '*',
         'Strict-Transport-Security',
         'max-age=31536000' ]);
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d/experience/views')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: '0', perPage: '1000' })
       .reply(200, {
@@ -184,7 +184,7 @@ describe('#ExperienceBootstrap', () => {
         'Strict-Transport-Security',
         'max-age=31536000' ]);
 
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .patch('/applications/5b9297591fefb200072e554d/experience/bootstrap', {})
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, { resourceSuffix: 'aSuffix', password: 'yp926mfr6a', email: 'test.user.yp926mfr6a@example.com' }, [ 'Date',
@@ -237,7 +237,7 @@ describe('#ExperienceBootstrap', () => {
   });
 
   it('should bootstrap even if skipped', async () => {
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, {
@@ -272,7 +272,7 @@ describe('#ExperienceBootstrap', () => {
         '*',
         'Strict-Transport-Security',
         'max-age=31536000' ]);
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d/experience/views')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: '0', perPage: '1000' })
       .reply(200, {
@@ -322,7 +322,7 @@ describe('#ExperienceBootstrap', () => {
         'Strict-Transport-Security',
         'max-age=31536000' ]);
 
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .patch('/applications/5b9297591fefb200072e554d/experience/bootstrap', {})
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, { resourceSuffix: 'aSuffix', password: 'yp926mfr6a', email: 'test.user.yp926mfr6a@example.com' }, [ 'Date',
