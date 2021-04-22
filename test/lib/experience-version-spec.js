@@ -65,7 +65,7 @@ describe('#ExperienceVersion', function() {
     await buildConfig();
 
     await versionCommand(null, {});
-    let versionPrint = `Version Name: ${c.cyan.bold('develop')}\nCreation Date: Sep 18 2018 17:49\n\nDomains:\nembree.on.losant.commycustomguy.com\nanotherCustomMan.com\n`;
+    let versionPrint = `Version Name: ${c.cyan.bold('develop')}\nCreation Date: Sep 18 2018 17:49\n\nDomains:\nembree.app.wnology.iomycustomguy.com\nanotherCustomMan.com\n`;
     versionPrint += '---------------------------\n\n';
     versionPrint += `Version Name: ${c.cyan.bold('v1.0.0')}\nCreation Date: Sep 18 2018 17:49\n\nDomains:\ndomain.com\ndomain1.com\n*wildcard.com\n`;
     message.should.equal(versionPrint);

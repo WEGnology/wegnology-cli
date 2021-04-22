@@ -1,6 +1,6 @@
 {
   "name": "wegnology-cli",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "WEGnology Command Line Interface",
   "license": "MIT",
   "homepage": "https://github.com/WEGnology/wegnology-cli#readme",
@@ -48,7 +48,7 @@
     "js-yaml": "^3.12.0",
     "jsonwebtoken": "^8.5.1",
     "lodash-template": "^1.0.0",
-    "losant-rest": "2.5.1",
+    "wegnology-rest": "2.8.0",
     "mime-types": "^2.1.27",
     "minimatch": "^3.0.4",
     "moment": "^2.25.3",

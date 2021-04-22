@@ -23,7 +23,7 @@ describe('Data Tables Commands', () => {
       'export'
     ]);
     const msg = await deferred.promise;
-    msg.should.equal(errorLog('Configuration file missing for this directory, run WEGnology configure to generate this file.'));
+    msg.should.equal(errorLog('Configuration file missing for this directory, run wegnology configure to generate this file.'));
   });
 
   it('should try to export data tables', async function() {

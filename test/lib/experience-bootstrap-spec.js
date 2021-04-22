@@ -229,7 +229,7 @@ describe('#ExperienceBootstrap', () => {
       downloadLog('experience/components/gaTracking.hbs'),
       processingLog('experience/components/userIndicator.hbs'),
       downloadLog('experience/components/userIndicator.hbs'),
-      `${pad(c.gray('Experience URL'), 13)}\thttps://aSlug.on.losant.com/aSuffix`,
+      `${pad(c.gray('Experience URL'), 13)}\thttps://aSlug.app.wnology.io/aSuffix`,
       `${pad(c.gray('Bootstrap Username'), 13)}\ttest.user.yp926mfr6a@example.com`,
       `${pad(c.gray('Bootstrap Password'), 13)}\typ926mfr6a`,
       `${pad(c.green('Completed'), 13)}\tBootstrapping has been successful.`
@@ -370,7 +370,7 @@ describe('#ExperienceBootstrap', () => {
       downloadLog('experience/components/gaTracking.hbs'),
       processingLog('experience/components/userIndicator.hbs'),
       downloadLog('experience/components/userIndicator.hbs'),
-      `${pad(c.gray('Experience URL'), 13)}\thttps://aSlug.on.losant.com/aSuffix`,
+      `${pad(c.gray('Experience URL'), 13)}\thttps://aSlug.app.wnology.io/aSuffix`,
       `${pad(c.gray('Bootstrap Username'), 13)}\ttest.user.yp926mfr6a@example.com`,
       `${pad(c.gray('Bootstrap Password'), 13)}\typ926mfr6a`,
       `${pad(c.green('Completed'), 13)}\tBootstrapping has been successful.`

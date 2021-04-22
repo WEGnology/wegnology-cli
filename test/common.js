@@ -56,7 +56,7 @@ const unlockConfigFiles = (files) => {
 const sandbox = sinon.createSandbox();
 
 const buildUserConfig = () => {
-  return utils.saveUserConfig({ 'https://api.app.wnology.io': { apiToken: 'token', endpointDomain: 'on.losant.com', appUrl: 'https://api.app.wnology.io' } });
+  return utils.saveUserConfig({ 'https://api.app.wnology.io': { apiToken: 'token', endpointDomain: 'app.wnology.io', appUrl: 'https://app.wnology.io' } });
 };
 
 const buildConfig = async () => {
