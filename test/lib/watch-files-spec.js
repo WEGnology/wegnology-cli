@@ -32,14 +32,14 @@ describe('#Watch Files', () => {
     watcherClose = await watch();
     this.timeout(3000);
     for (let i = 0; i < 3; i++) {
-      nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+      nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
         .get('/applications/5b9297591fefb200072e554d/files')
         .query({
           _actions: 'false', _links: 'true', _embedded: 'true', type: 'file', page: 0, perPage: 1000
         })
         .reply(200, {});
     }
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .post('/applications/5b9297591fefb200072e554d/files', { name: 'help.txt', parentDirectory: '/', type: 'file', fileSize: 9, contentType: 'text/plain' })
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(201, {
@@ -64,7 +64,7 @@ describe('#Watch Files', () => {
         }
       });
 
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .post('/applications/5b9297591fefb200072e554d/files', { name: 'yo.txt', parentDirectory: '/', type: 'file', fileSize: 9, contentType: 'text/plain' })
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(201, {
@@ -89,7 +89,7 @@ describe('#Watch Files', () => {
         }
       });
 
-    nock('https://api.app.wnology.io/:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .post('/applications/5b9297591fefb200072e554d/files', { name: 'myFile.txt', parentDirectory: '/mine', type: 'file', fileSize: 9, contentType: 'text/plain' })
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(201, {

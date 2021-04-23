@@ -39,7 +39,7 @@ describe('utils', () => {
     });
     it('.saveConfig and .loadConfig', async () => {
       const config = {
-        apiUrl: 'https://api.app.wnology.io/',
+        apiUrl: 'https://api.app.wnology.io',
         applicationId: '5b9297591fefb200072e554d'
       };
       await utils.saveConfig(file, config);
@@ -47,7 +47,7 @@ describe('utils', () => {
       const result = await utils.loadConfig(file);
       should.exist(result.api);
       delete result.api;
-      result.should.deepEqual(merge(config, { file, apiToken: 'token', appUrl: 'https://app.losant.com', endpointDomain: 'on.losant.com' }));
+      result.should.deepEqual(merge(config, { file, apiToken: 'token', appUrl: 'https://app.wnology.io', endpointDomain: 'app.wnology.io' }));
     });
     it('.loadConfig should update old config files', async () => {
       process.env.WEGNOLOGY_API_URL = 'https://host.com';

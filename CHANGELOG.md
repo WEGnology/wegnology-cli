@@ -1,13 +1,13 @@
-# WegDigital CLI Changelog
+# WEGnology CLI Changelog
 
-## WegDigital CLI v1.1.1
+## WEGnology CLI v1.1.1
 
 ### Fixed
 
 * locking down client API version.
 * now properly scoping the user token.
 
-## WegDigital CLI v1.1.0
+## WEGnology CLI v1.1.0
 
 ### Added
 
@@ -19,7 +19,7 @@
 * Ensuring lock file unlocks when closing the watcher
 * Actually generating folder structure on configure
 
-## WegDigital CLI v1.2.0
+## WEGnology CLI v1.2.0
 
 ### Added
 
@@ -29,7 +29,7 @@
 
 * sanitizing file names
 
-## WegDigital CLI v1.2.1
+## WEGnology CLI v1.2.1
 
 ### Fixed
 

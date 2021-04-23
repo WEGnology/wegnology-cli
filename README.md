@@ -137,6 +137,6 @@ The `wegnology datatables` command is how you manage the data tables for a confi
 
 *****
 
-Copyright (c) 2019 WEGnology IoT, Inc
+Copyright (c) 2021 WEGnology IoT, Inc
 
 <https://docs.app.wnology.io/>
