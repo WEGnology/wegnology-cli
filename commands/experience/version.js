@@ -1,13 +1,13 @@
 const printHelp = require('../../lib/print-help');
 const helpLines = [
   'List all of your current experience versions',
-  '$ losant experience version',
+  '$ wegnology experience version',
   'List all of your experience versions that match a pattern',
-  '$ losant experience version -l v1.*',
+  '$ wegnology experience version -l v1.*',
   'Create a new experience version',
-  '$ losant experience version v1.0.0',
+  '$ wegnology experience version v1.0.0',
   'Create a new experience version with a description',
-  '$ losant experience version v1.0.1 -d "updated home page"'
+  '$ wegnology experience version v1.0.1 -d "updated home page"'
 ];
 module.exports = (program) => {
   const subProgram = program

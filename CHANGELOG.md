@@ -1,19 +1,19 @@
-# Losant CLI Changelog
+# WEGnology CLI Changelog
 
-## Losant CLI v1.2.3
+## WEGnology CLI v1.2.3
 
 ### Added
 
-* Set token command (`losant set-token`)
+* Set token command (`wegnology set-token`)
 
 ### Changed
 
-* Updated `losant login` command to prompt for a User Token when an email is linked to a Single Sign-On provider.
-* Updated the losant-rest client version
+* Updated `wegnology login` command to prompt for a User Token when an email is linked to a Single Sign-On provider.
+* Updated the wegnology-rest client version
 
 --
 
-## Losant CLI v1.2.2
+## WEGnology CLI v1.2.2
 
 ### Fixed
 
@@ -21,7 +21,7 @@
 
 --
 
-## Losant CLI v1.2.1
+## WEGnology CLI v1.2.1
 
 ### Fixed
 
@@ -29,11 +29,11 @@
 
 --
 
-## Losant CLI v1.2.0
+## WEGnology CLI v1.2.0
 
 ### Added
 
-* Data Tables export command (`losant datatable export`)
+* Data Tables export command (`wegnology datatable export`)
 
 ### Fixed
 
@@ -41,7 +41,7 @@
 
 --
 
-## Losant CLI v1.1.1
+## WEGnology CLI v1.1.1
 
 ### Fixed
 
@@ -50,12 +50,12 @@
 
 --
 
-## Losant CLI v1.1.0
+## WEGnology CLI v1.1.0
 
 ### Added
 
-* Experience layout command (`losant experience layout [page]`)
-* Experience bootstrap command (`losant experience bootstrap`)
+* Experience layout command (`wegnology experience layout [page]`)
+* Experience bootstrap command (`wegnology experience bootstrap`)
 
 ### Fixed
 

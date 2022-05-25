@@ -19,17 +19,17 @@ describe('Data Tables Commands', () => {
 
     require('../../commands/dataTables').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/losant-dataTables.js'),
+      path.resolve(__dirname, '/bin/wegnology-dataTables.js'),
       'export'
     ]);
     const msg = await deferred.promise;
-    msg.should.equal(errorLog('Configuration file missing for this directory, run losant configure to generate this file.'));
+    msg.should.equal(errorLog('Configuration file missing for this directory, run wegnology configure to generate this file.'));
   });
 
   it('should try to export data tables', async function() {
     await buildConfig();
     const deferred = defer();
-    nock('https://api.losant.com:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d/data-tables')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: '0', perPage: '1000' })
       .reply(200, {});
@@ -39,7 +39,7 @@ describe('Data Tables Commands', () => {
 
     require('../../commands/dataTables').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/losant-dataTables.js'),
+      path.resolve(__dirname, '/bin/wegnology-dataTables.js'),
       'export'
     ]);
     const msg = await deferred.promise;
@@ -49,7 +49,7 @@ describe('Data Tables Commands', () => {
   it('should get rows from a data table', async function() {
     await buildConfig();
     const deferred = defer();
-    nock('https://api.losant.com:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d/data-tables')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: '0', perPage: '1000' })
       .reply(200, {
@@ -67,7 +67,7 @@ describe('Data Tables Commands', () => {
         _links: { self: { href: '/applications/5b9297591fefb200072e554d/data-tables' } }
       });
 
-    nock('https://api.losant.com:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d/data-tables/5d2c9dab16770d0008c013fb/rows')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', limit: 1000, offset: 0 })
       .reply(200, {
@@ -86,7 +86,7 @@ describe('Data Tables Commands', () => {
 
     require('../../commands/dataTables').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/losant-dataTables.js'),
+      path.resolve(__dirname, '/bin/wegnology-dataTables.js'),
       'export'
     ]);
     let msg = '';

@@ -1,12 +1,12 @@
 {
-  "name": "losant-cli",
-  "version": "1.2.3",
-  "description": "Losant Command Line Interface",
+  "name": "wegnology-cli",
+  "version": "1.2.4",
+  "description": "WEGnology Command Line Interface",
   "license": "MIT",
-  "homepage": "https://github.com/Losant/losant-cli#readme",
-  "author": "Losant <hello@losant.com>",
+  "homepage": "https://github.com/WEGnology/wegnology-cli#readme",
+  "author": "WEGnology <hello@wegnology.com>",
   "bugs": {
-    "url": "https://github.com/Losant/losant-cli/issues"
+    "url": "https://github.com/WEGnology/wegnology-cli/issues"
   },
   "keywords": [
     "IoT",
@@ -14,7 +14,7 @@
     "CLI"
   ],
   "bin": {
-    "losant": "./bin/losant.js"
+    "wegnology": "./bin/wegnology.js"
   },
   "engines": {
     "node": ">=10"
@@ -30,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Losant/losant-cli.git"
+    "url": "git+https://github.com/WEGnology/wegnology-cli.git"
   },
   "dependencies": {
     "@rjhilgefort/export-dir": "^2.0.0",
@@ -49,7 +49,7 @@
     "js-yaml": "^3.12.0",
     "jsonwebtoken": "^8.5.1",
     "lodash-template": "^1.0.0",
-    "losant-rest": "2.8.1",
+    "wegnology-rest": "2.8.1",
     "mime-types": "^2.1.30",
     "minimatch": "^3.0.4",
     "moment": "^2.29.1",

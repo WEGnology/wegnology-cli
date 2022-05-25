@@ -1,5 +1,5 @@
 const p = require('commander');
-const program = new p.Command('losant set-token');
+const program = new p.Command('wegnology set-token');
 const inquirer = require('inquirer');
 const getApi = require('../../lib/get-api');
 const c = require('chalk');
@@ -8,11 +8,11 @@ const {
 } = require('../../lib/utils');
 
 program
-  .description('Create a User API Token in your Losant account, then set it here to configure the command line tool.')
+  .description('Create a User API Token in your WEGnology account, then set it here to configure the command line tool.')
   .action(async () => {
     // prompt the user to input a token
     const { token: apiToken } = await inquirer.prompt([
-      { type: 'input', name: 'token', message: 'Enter a Losant User API token:' }
+      { type: 'input', name: 'token', message: 'Enter a WEGnology User API token:' }
     ]);
     try {
       const api = await getApi({ apiToken });

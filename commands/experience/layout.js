@@ -1,11 +1,11 @@
 const printHelp = require('../../lib/print-help');
 const helpLines = [
   'View all your experience pages with their layouts',
-  '$ losant experience layout',
+  '$ wegnology experience layout',
   'View all of your experience pages that match this pattern with their layout',
-  '$ losant experience layout -l v1.*',
+  '$ wegnology experience layout -l v1.*',
   'Set a layout for page example',
-  '$ losant experience layout example'
+  '$ wegnology experience layout example'
 ];
 module.exports = (program) => {
   const subProgram = program

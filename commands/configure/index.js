@@ -1,7 +1,7 @@
 const error = require('error/typed');
 const p = require('commander');
 const { merge, findIndex, propEq } = require('omnibelt');
-const program = new p.Command('losant configure');
+const program = new p.Command('wegnology configure');
 const getApi = require('../../lib/get-api');
 const c = require('chalk');
 const retryP = require('../../lib/retryP');
@@ -97,7 +97,7 @@ const setSkippedExperience = (api, application) => {
 };
 
 program
-  .description('Configures and associates a directory on disk to represent one of your Losant applications and its resources.')
+  .description('Configures and associates a directory on disk to represent one of your WEGnology applications and its resources.')
   .action(async (command) => {
     let userConfig = await loadUserConfig() || {};
     const apiUrl = await getApiURL(userConfig);
@@ -111,7 +111,7 @@ program
       appInfo = await retryP(getApplication, printRetry);
     } catch (e) {
       if (e.message === 'Invalid access token') {
-        return log('Invalid access token, please re-login in by running "losant login".');
+        return log('Invalid access token, please re-login in by running "wegnology login".');
       }
       throw e;
     }

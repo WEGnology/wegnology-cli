@@ -7,7 +7,7 @@ module.exports = (program, type, params = {}) => {
     .action(getStatusFunc(params));
   const helpLines = [
     `Check status of all ${type === 'experience' ? 'experience views' : type}`,
-    `$ losant ${type} status`
+    `$ wegnology ${type} status`
   ];
   printHelp(subProgram, helpLines);
   return { helpLines };

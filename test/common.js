@@ -1,5 +1,5 @@
 process.env.NODE_ENV = 'test';
-process.env.LOSANT_API_URL = process.env.LOSANT_API_URL || 'https://api.losant.com';
+process.env.WEGNOLOGY_API_URL = process.env.WEGNOLOGY_API_URL || 'https://api.app.wnology.io';
 process.env.TZ = 'US/Eastern'; // for travis ci to run in eastern
 // this is for the utils file and saving the config.
 process.env.HOME = __dirname;
@@ -29,7 +29,7 @@ const conflictLog = (msg) => { return `${pad(c.redBright('conflict'), 13)}\t${ms
 const errorLog = (msg) => { return `${c.redBright('Error')} ${msg}`; };
 const addedLog = (msg) => { return `${pad(c.green('added'), 13)}\t${msg}`; };
 const deleteFakeData = () => {
-  return Promise.all(['experience', 'files', 'dataTables', 'views', '.losant', 'losant.yml'].map(async (folder) => {
+  return Promise.all(['experience', 'files', 'dataTables', 'views', '.wegnology', 'wegnology.yml'].map(async (folder) => {
     if (await pathExists(`./${folder}`)) {
       return remove(`./${folder}`);
     }
@@ -48,7 +48,7 @@ const printTable = (headers, columns) => {
 const unlockConfigFiles = (files) => {
   if (!Array.isArray(files)) { files = [ files ]; }
   return Promise.all(files.map(async (file) => {
-    file = path.resolve(__dirname, '.losant', file);
+    file = path.resolve(__dirname, '.wegnology', file);
     if ((await pathExists(file)) && locker.checkSync(file)) { locker.unlockSync(file); }
   }));
 };
@@ -56,7 +56,7 @@ const unlockConfigFiles = (files) => {
 const sandbox = sinon.createSandbox();
 
 const buildUserConfig = () => {
-  return utils.saveUserConfig({ 'https://api.losant.com': { apiToken: 'token', endpointDomain: 'on.losant.com', appUrl: 'https://app.losant.com' } });
+  return utils.saveUserConfig({ 'https://api.app.wnology.io': { apiToken: 'token', endpointDomain: 'on.wegnology.com', appUrl: 'https://app.wnology.io' } });
 };
 
 const buildConfig = async () => {
@@ -64,7 +64,7 @@ const buildConfig = async () => {
   const config = {
     applicationId: '5b9297591fefb200072e554d',
     applicationName: 'Test Application',
-    apiUrl: 'https://api.losant.com'
+    apiUrl: 'https://api.app.wnology.io'
   };
   return utils.saveConfig(undefined, config); // let it default
 };
@@ -78,10 +78,10 @@ before(() => {
 });
 
 beforeEach(async () => {
-  await unlockConfigFiles(['.losant.yml']);
+  await unlockConfigFiles(['.wegnology.yml']);
   await deleteFakeData();
-  if (await pathExists('../.losant')) {
-    return remove('../.losant');
+  if (await pathExists('../.wegnology')) {
+    return remove('../.wegnology');
   }
   await sandbox.restore();
   nock.disableNetConnect();

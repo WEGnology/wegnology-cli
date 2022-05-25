@@ -10,12 +10,12 @@ const utils = require('../../lib/utils');
 describe('Set Token Command', () => {
   it('should set the API token', async () => {
     const deferred = defer();
-    nock('https://api.losant.com:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/whitelabels/domain')
       .reply(200,
         {
-          appUrl: 'https://app.losant.com',
-          endpointDomain: 'endpoint.onlosant.com'
+          appUrl: 'https://app.wnology.io',
+          endpointDomain: 'endpoint.onwegnology.com'
         },
         [ 'Date',
           'Mon, 10 May 2021 14:42:04 GMT',
@@ -26,7 +26,7 @@ describe('Set Token Command', () => {
           'Connection',
           'close',
           'Server',
-          'Losant API',
+          'WEGnology API',
           'Pragma',
           'no-cache',
           'Cache-Control',
@@ -46,7 +46,7 @@ describe('Set Token Command', () => {
 
     const stub = sinon.stub(inquirer, 'prompt');
     stub.onCall(0).callsFake((data) => {
-      data[0].message.should.equal('Enter a Losant User API token:');
+      data[0].message.should.equal('Enter a WEGnology User API token:');
       deferred.resolve();
       return Promise.resolve({ token: 'token1' });
     });
@@ -60,10 +60,10 @@ describe('Set Token Command', () => {
     await sleep(500); // give it a second to right the file...
     const config = await utils.loadUserConfig(false);
     config.should.deepEqual({
-      'https://api.losant.com': {
+      'https://api.app.wnology.io': {
         apiToken: 'token1',
-        appUrl: 'https://app.losant.com',
-        endpointDomain: 'endpoint.onlosant.com'
+        appUrl: 'https://app.wnology.io',
+        endpointDomain: 'endpoint.onwegnology.com'
       }
     });
 

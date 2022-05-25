@@ -26,7 +26,7 @@ const utils = require('../../lib/utils');
 
 const nockExperienceView = (items, numNocks = 1) => {
   for (let i = 0; i < numNocks; i++) {
-    nock('https://api.losant.com:443', { encodedQueryParams: true })
+    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d/experience/views')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: 0, perPage: 1000 })
       .reply(200, {

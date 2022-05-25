@@ -3,9 +3,9 @@ const constants = require('../../lib/constants');
 const printHelp = require('../../lib/print-help');
 const helpLines = [
   'Upload all experience views',
-  '$ losant experience upload',
+  '$ wegnology experience upload',
   'Upload only component views',
-  '$ losant experience upload --type components /*'
+  '$ wegnology experience upload --type components /*'
 ];
 module.exports = (program) => {
   const options = [ constants.options.viewType ];

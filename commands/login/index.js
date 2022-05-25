@@ -1,6 +1,6 @@
 const error = require('error/typed');
 const p = require('commander');
-const program = new p.Command('losant login');
+const program = new p.Command('wegnology login');
 const getApi = require('../../lib/get-api');
 const retryP = require('../../lib/retryP');
 const c = require('chalk');
@@ -14,7 +14,7 @@ const signIn = async (isRetry) => {
     logError('Authentication failed please try again...');
   }
   const { email } = await inquirer.prompt([
-    { type: 'input', name: 'email', message: 'Enter Losant email:' }
+    { type: 'input', name: 'email', message: 'Enter WEGnology email:' }
   ]);
   let api = await getApi();
   const apiCreds = {};
@@ -24,13 +24,13 @@ const signIn = async (isRetry) => {
       {
         type: 'input',
         name: 'token',
-        message: `This account, ${email}, is linked to a Single Sign-On (SSO) provider. Please create a CLI-Scoped User API Token in your Losant account, and then enter it here:`
+        message: `This account, ${email}, is linked to a Single Sign-On (SSO) provider. Please create a CLI-Scoped User API Token in your WEGnology account, and then enter it here:`
       }
     ]);
     apiCreds.apiToken = apiToken;
   } else {
     const { password, twoFactorCode } = await inquirer.prompt([
-      { type: 'password', name: 'password', message: 'Enter Losant password:' },
+      { type: 'password', name: 'password', message: 'Enter WEGnology password:' },
       { type: 'input', name: 'twoFactorCode', message: 'Enter two-factor auth code (if applicable):' }
     ]);
     if (!email || !password) {

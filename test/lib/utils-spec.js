@@ -26,7 +26,7 @@ describe('utils', () => {
     let ogUrl;
     const file = path.resolve(__dirname, 'save-config.yaml');
     before(() => {
-      ogUrl = process.env.LOSANT_API_URL;
+      ogUrl = process.env.WEGNOLOGY_API_URL;
     });
     afterEach(async () => {
       utils.unlockConfigSync(file);
@@ -35,11 +35,11 @@ describe('utils', () => {
       }
     });
     after(() => {
-      process.env.LOSANT_API_URL = ogUrl;
+      process.env.WEGNOLOGY_API_URL = ogUrl;
     });
     it('.saveConfig and .loadConfig', async () => {
       const config = {
-        apiUrl: 'https://api.losant.com',
+        apiUrl: 'https://api.app.wnology.io',
         applicationId: '5b9297591fefb200072e554d'
       };
       await utils.saveConfig(file, config);
@@ -47,10 +47,10 @@ describe('utils', () => {
       const result = await utils.loadConfig(file);
       should.exist(result.api);
       delete result.api;
-      result.should.deepEqual(merge(config, { file, apiToken: 'token', appUrl: 'https://app.losant.com', endpointDomain: 'on.losant.com' }));
+      result.should.deepEqual(merge(config, { file, apiToken: 'token', appUrl: 'https://app.wnology.io', endpointDomain: 'on.wegnology.com' }));
     });
     it('.loadConfig should update old config files', async () => {
-      process.env.LOSANT_API_URL = 'https://host.com';
+      process.env.WEGNOLOGY_API_URL = 'https://host.com';
       const token = jwt.sign({
         data: 'foobar'
       }, 'sssshhhitsasecret', { issuer: 'host.com' });
