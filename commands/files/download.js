@@ -3,11 +3,11 @@ const printHelp = require('../../lib/print-help');
 
 const helpLines = [
   'Download all files',
-  '$ wegnology files download',
+  '$ losant files download',
   'Download files in images directory',
-  '$ wegnology files download images/*',
+  '$ losant files download images/*',
   'Force a download of all files overwriting local modifications',
-  '$ wegnology files download -f'
+  '$ losant files download -f'
 ];
 
 module.exports = (program) => {

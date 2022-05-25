@@ -13,16 +13,16 @@ describe('Configure Commands', () => {
     const deferred = defer();
     let urls = [];
     const conf = {
-      'https://api.app.wnology.io': { apiToken: 'token1' },
+      'https://api.losant.com': { apiToken: 'token1' },
       'https://whatthewhat.com': { apiToken: 'token2' }
     };
     await saveUserConfig(conf);
-    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+    nock('https://api.losant.com:443', { encodedQueryParams: true })
       .get('/applications')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', filterField: 'name', filter: 'CSV' })
       .reply(200, { count: 1, items: [{ name: 'CSV', id: '5c6d800c8f3e0c000945c135' }] });
 
-    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+    nock('https://api.losant.com:443', { encodedQueryParams: true })
       .get('/applications/5c6d800c8f3e0c000945c135/experience/views')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: 0, perPage: 1000 })
       .reply(200, {
@@ -49,8 +49,8 @@ describe('Configure Commands', () => {
     const stub = sinon.stub(inquirer, 'prompt');
     stub.onCall(0).callsFake((data) => {
       urls = data[0].choices;
-      urls.should.deepEqual(['https://api.app.wnology.io', 'https://whatthewhat.com']);
-      return Promise.resolve({ url: 'https://api.app.wnology.io' });
+      urls.should.deepEqual(['https://api.losant.com', 'https://whatthewhat.com']);
+      return Promise.resolve({ url: 'https://api.losant.com' });
     });
     stub.onCall(1).callsFake((data) => {
       data[0].message.should.equal('Enter an Application Name:');
@@ -66,7 +66,7 @@ describe('Configure Commands', () => {
 
     require('../../commands/configure').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-configure.js')]);
+      path.resolve(__dirname, '/bin/losant-configure.js')]);
 
     await deferred.promise;
   });

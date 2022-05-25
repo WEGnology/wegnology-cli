@@ -7,7 +7,7 @@ module.exports = (nameOfCommand, program) => {
     .action(require('../../lib/watch-files')(nameOfCommand));
   const helpLines = [
     `Watch your ${capitalize(nameOfCommand)} while you make changes and have them automatically uploaded`,
-    `$ wegnology ${nameOfCommand} watch`
+    `$ losant ${nameOfCommand} watch`
   ];
 
   printHelp(subProgram, helpLines);

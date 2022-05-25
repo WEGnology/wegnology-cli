@@ -32,15 +32,15 @@ describe('Experience Commands', () => {
     });
     require('../../commands/experience').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-experience.js'),
+      path.resolve(__dirname, '/bin/losant-experience.js'),
       'status'
     ]);
     const msg = await deferred.promise;
-    msg.should.equal(errorLog('Configuration file missing for this directory, run wegnology configure to generate this file.'));
+    msg.should.equal(errorLog('Configuration file missing for this directory, run losant configure to generate this file.'));
   });
   it('should run get status', async () => {
     await buildConfig();
-    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+    nock('https://api.losant.com:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d/experience/views')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: 0, perPage: 1000 })
       .reply(200, {
@@ -104,7 +104,7 @@ describe('Experience Commands', () => {
 
     require('../../commands/experience').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-experience.js'),
+      path.resolve(__dirname, '/bin/losant-experience.js'),
       'status'
     ]);
     const msg = await deferred.promise;
@@ -127,7 +127,7 @@ describe('Experience Commands', () => {
   it('should run get status, download, and not upload because of conflicts', async function() {
     await buildConfig();
     for (let i = 0; i < 3; i++) {
-      nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+      nock('https://api.losant.com:443', { encodedQueryParams: true })
         .get('/applications/5b9297591fefb200072e554d/experience/views')
         .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: 0, perPage: 1000 })
         .reply(200, {
@@ -198,7 +198,7 @@ describe('Experience Commands', () => {
 
     require('../../commands/experience').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-experience.js'),
+      path.resolve(__dirname, '/bin/losant-experience.js'),
       'download'
     ]);
     await unlockConfigFiles(CONFIG_FILE);
@@ -235,7 +235,7 @@ describe('Experience Commands', () => {
     });
     require('../../commands/experience').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-experience.js'),
+      path.resolve(__dirname, '/bin/losant-experience.js'),
       'status'
     ]);
     await unlockConfigFiles(CONFIG_FILE);
@@ -269,7 +269,7 @@ describe('Experience Commands', () => {
     });
     require('../../commands/experience').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-experience.js'),
+      path.resolve(__dirname, '/bin/losant-experience.js'),
       'status'
     ]);
     await unlockConfigFiles(CONFIG_FILE);
@@ -296,7 +296,7 @@ describe('Experience Commands', () => {
       uploadDeferred.resolve();
     });
 
-    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+    nock('https://api.losant.com:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d/experience/views')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: 0, perPage: 1000 })
       .reply(200, {
@@ -356,7 +356,7 @@ describe('Experience Commands', () => {
 
     require('../../commands/experience').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-experience.js'),
+      path.resolve(__dirname, '/bin/losant-experience.js'),
       'upload'
     ]);
     await unlockConfigFiles(CONFIG_FILE);
@@ -370,7 +370,7 @@ describe('Experience Commands', () => {
   it('should run get status, download, and upload', async function() {
     await buildConfig();
     for (let i = 0; i < 4; i++) {
-      nock('https://api.app.wnology.io', { encodedQueryParams: true })
+      nock('https://api.losant.com:443', { encodedQueryParams: true })
         .get('/applications/5b9297591fefb200072e554d/experience/views')
         .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: 0, perPage: 1000 })
         .reply(200, {
@@ -441,7 +441,7 @@ describe('Experience Commands', () => {
 
     require('../../commands/experience').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-experience.js'),
+      path.resolve(__dirname, '/bin/losant-experience.js'),
       'download'
     ]);
     await unlockConfigFiles(CONFIG_FILE);
@@ -478,7 +478,7 @@ describe('Experience Commands', () => {
     });
     require('../../commands/experience').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-experience.js'),
+      path.resolve(__dirname, '/bin/losant-experience.js'),
       'status'
     ]);
     await unlockConfigFiles(CONFIG_FILE);
@@ -512,7 +512,7 @@ describe('Experience Commands', () => {
     });
     require('../../commands/experience').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-experience.js'),
+      path.resolve(__dirname, '/bin/losant-experience.js'),
       'status'
     ]);
     await unlockConfigFiles(CONFIG_FILE);
@@ -540,7 +540,7 @@ describe('Experience Commands', () => {
         uploadDeferred.resolve();
       }
     });
-    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+    nock('https://api.losant.com:443', { encodedQueryParams: true })
       .delete('/applications/5b9297591fefb200072e554d/experience/views/59f201edf21ee00007a93a96')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, { success: true },
@@ -566,7 +566,7 @@ describe('Experience Commands', () => {
           '*',
           'Strict-Transport-Security',
           'max-age=31536000' ]);
-    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+    nock('https://api.losant.com:443', { encodedQueryParams: true })
       .delete('/applications/5b9297591fefb200072e554d/experience/views/59f201ed95c9e70007b7ffc7')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, { success: true },
@@ -593,7 +593,7 @@ describe('Experience Commands', () => {
           'Strict-Transport-Security',
           'max-age=31536000' ]);
 
-    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+    nock('https://api.losant.com:443', { encodedQueryParams: true })
       .patch('/applications/5b9297591fefb200072e554d/experience/views/59f24b75ae64aa0007e7618a', { body: 'hello world...' })
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, {
@@ -621,7 +621,7 @@ describe('Experience Commands', () => {
         '*',
         'Strict-Transport-Security',
         'max-age=31536000' ]);
-    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+    nock('https://api.losant.com:443', { encodedQueryParams: true })
       .patch('/applications/5b9297591fefb200072e554d/experience/views/5a33f4e847308400073d07f4', { body: 'Oh hi mark...' })
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, {
@@ -650,7 +650,7 @@ describe('Experience Commands', () => {
         'Strict-Transport-Security',
         'max-age=31536000' ]);
 
-    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+    nock('https://api.losant.com:443', { encodedQueryParams: true })
       .post('/applications/5b9297591fefb200072e554d/experience/views', { body: 'a whole new page!', viewType: 'page', name: 'newPage' })
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, {
@@ -681,7 +681,7 @@ describe('Experience Commands', () => {
 
     require('../../commands/experience').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-experience.js'),
+      path.resolve(__dirname, '/bin/losant-experience.js'),
       'upload'
     ]);
     await unlockConfigFiles(CONFIG_FILE);

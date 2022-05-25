@@ -4,7 +4,7 @@ const printHelp = require('../../lib/print-help');
 const helpLines =
 [
   'Export a data table',
-  '$ wegnology datatables export'
+  '$ losant datatables export'
 ];
 
 module.exports = (program) => {

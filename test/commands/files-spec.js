@@ -35,16 +35,16 @@ describe('Files Commands', () => {
 
     require('../../commands/files').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-files.js'),
+      path.resolve(__dirname, '/bin/losant-files.js'),
       'status'
     ]);
     const msg = await deferred.promise;
-    msg.should.equal(errorLog('Configuration file missing for this directory, run wegnology configure to generate this file.'));
+    msg.should.equal(errorLog('Configuration file missing for this directory, run losant configure to generate this file.'));
   });
   it('should run get status', async function() {
     await buildConfig();
     const deferred = defer();
-    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+    nock('https://api.losant.com:443', { encodedQueryParams: true })
       .get('/applications/5b9297591fefb200072e554d/files')
       .query({
         _actions: 'false', _links: 'true', _embedded: 'true', type: 'file', page: 0, perPage: 1000
@@ -87,7 +87,7 @@ describe('Files Commands', () => {
 
     require('../../commands/files').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-files.js'),
+      path.resolve(__dirname, '/bin/losant-files.js'),
       'status'
     ]);
     const msg = await deferred.promise;
@@ -151,7 +151,7 @@ describe('Files Commands', () => {
         'jPQs76DzBnKTPR73RdGwDskTR52j1W1p1ag6GZKgtLiGNvdk0A8iGg=='
       ]);
     for (let i = 0; i < 4; i++) {
-      nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+      nock('https://api.losant.com:443', { encodedQueryParams: true })
         .get('/applications/5b9297591fefb200072e554d/files')
         .query({
           _actions: 'false', _links: 'true', _embedded: 'true', type: 'file', page: 0, perPage: 1000
@@ -194,7 +194,7 @@ describe('Files Commands', () => {
           'max-age=31536000' ]);
     }
 
-    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+    nock('https://api.losant.com:443', { encodedQueryParams: true })
       .post('/applications/5b9297591fefb200072e554d/files', { name: 'newFile.txt', parentDirectory: '/', type: 'file', fileSize: 11, contentType: 'text/plain' })
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(201, {
@@ -242,7 +242,7 @@ describe('Files Commands', () => {
         'Strict-Transport-Security',
         'max-age=31536000' ]);
 
-    nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
+    nock('https://api.losant.com:443', { encodedQueryParams: true })
       .post('/applications/5b9297591fefb200072e554d/files', { name: 'newFile.txt.other', parentDirectory: '/deep/nested', type: 'file', fileSize: 11, contentType: 'application/octet-stream' })
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(201, {
@@ -320,7 +320,7 @@ describe('Files Commands', () => {
     });
     require('../../commands/files').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-files.js'),
+      path.resolve(__dirname, '/bin/losant-files.js'),
       'download'
     ]);
     await downloadDefer.promise;
@@ -344,7 +344,7 @@ describe('Files Commands', () => {
     });
     require('../../commands/files').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-files.js'),
+      path.resolve(__dirname, '/bin/losant-files.js'),
       'status'
     ]);
     await statusDefer.promise;
@@ -369,7 +369,7 @@ describe('Files Commands', () => {
     });
     require('../../commands/files').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-files.js'),
+      path.resolve(__dirname, '/bin/losant-files.js'),
       'status'
     ]);
     await statusDefer.promise;
@@ -395,7 +395,7 @@ describe('Files Commands', () => {
     });
     require('../../commands/files').parse([
       '/bin/node',
-      path.resolve(__dirname, '/bin/wegnology-files.js'),
+      path.resolve(__dirname, '/bin/losant-files.js'),
       'upload'
     ]);
     await uploadDefer.promise;

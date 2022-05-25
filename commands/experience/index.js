@@ -2,10 +2,10 @@ const { fromFiles } = require('@rjhilgefort/export-dir');
 const commands = Object.values(fromFiles(null, __dirname));
 const commonCommands = Object.values(require('../common'));
 const p = require('commander');
-const program = new p.Command('wegnology experience');
+const program = new p.Command('losant experience');
 const printHelp = require('../../lib/print-help');
 
-program.description('Manages your wegnology Application\'s Experience Views, and Versions from the command line.');
+program.description('Manages your Losant Application\'s Experience Views, and Versions from the command line.');
 
 const help =  [];
 commands.forEach((command) => {

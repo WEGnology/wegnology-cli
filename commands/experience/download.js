@@ -4,13 +4,13 @@ const printHelp = require('../../lib/print-help');
 
 const helpLines = [
   'Download all experience views (components, layouts and pages)',
-  '$ wegnology experience download',
+  '$ losant experience download',
   'Download component views',
-  '$ wegnology experience download --type components',
+  '$ losant experience download --type components',
   'Download component views with names that start with error',
-  '$ wegnology experience download --type components error*',
+  '$ losant experience download --type components error*',
   'Force a download of all views overwriting local modifications',
-  '$ wegnology experience download -f'
+  '$ losant experience download -f'
 ];
 
 
