@@ -1,4 +1,4 @@
-### losant-cli ###
+### wegnology-cli ###
 
 package-lock.json
 
@@ -10,9 +10,8 @@ package-lock.json
 /files/*
 /dataTables/*
 example*
-*/.losant/*
+*/.wegnology/*
 *.yaml
-!*/fixtures/*
 
 ### Node ###
 

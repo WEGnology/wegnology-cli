@@ -56,7 +56,7 @@ const unlockConfigFiles = (files) => {
 const sandbox = sinon.createSandbox();
 
 const buildUserConfig = () => {
-  return utils.saveUserConfig({ 'https://api.app.wnology.io': { apiToken: 'token', endpointDomain: 'app.wnology.io', appUrl: 'https://app.wnology.io' } });
+  return utils.saveUserConfig({ 'https://api.app.wnology.io': { apiToken: 'token', endpointDomain: 'on.wegnology.com', appUrl: 'https://app.wnology.io' } });
 };
 
 const buildConfig = async () => {
@@ -136,6 +136,6 @@ module.exports = {
   printTable,
   buildUserConfig,
   buildResourceConfig,
-  statusExpHeaders: [  'Name',  'View Type',  'Local Status',  'Remote Status',  'Conflict' ],
-  statusFilesHeaders: [  'Name',  'Directory',  'Local Status',  'Remote Status',  'Conflict' ]
+  statusExpHeaders: [ 'Name', 'View Type', 'Local Status', 'Remote Status', 'Conflict' ],
+  statusFilesHeaders: [ 'Name', 'Directory', 'Local Status', 'Remote Status', 'Conflict' ]
 };

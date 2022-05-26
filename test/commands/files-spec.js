@@ -95,7 +95,7 @@ describe('Files Commands', () => {
   });
 
   it('should run get status, download, upload', async function() {
-    nock('https://files.onlosant.com:443', { encodedQueryParams: true })
+    nock('https://files.onwegnology.com:443', { encodedQueryParams: true })
       .get('/5b9297591fefb200072e554d/7c_iLKJn.jpg')
       .reply(200, 'helloworld', [ 'Content-Type',
         'image/jpeg',
@@ -123,7 +123,7 @@ describe('Files Commands', () => {
         'jPQs76DzBnKTPR73RdGwDskTR52j1W1p1ag6GZKgtLiGNvdk0A8iGg=='
       ]);
 
-    nock('https://files.onlosant.com:443', { encodedQueryParams: true })
+    nock('https://files.onwegnology.com:443', { encodedQueryParams: true })
       .get('/5b9297591fefb200072e554d/30442479_1804907812955173_2594707246956191799_n.jpg')
       .reply(200, 'helloworld', [ 'Content-Type',
         'image/jpeg',
@@ -159,9 +159,9 @@ describe('Files Commands', () => {
         .reply(200, {
           count: 2,
           items: [{
-            name: '7c_iLKJn.jpg', parentDirectory: '/', type: 'file', fileSize: 21593, contentType: 'image/jpeg', authorType: 'user', authorId: '59a41ff6b36c040007c6e2eb', applicationId: '5b9297591fefb200072e554d', lastUpdated: '2018-10-17T14:58:32.487Z', creationDate: '2018-10-17T14:58:30.700Z', status: 'completed', s3etag: 'fc5e038d38a57032085441e7fe7010b0', url: 'https://files.onlosant.com/5b9297591fefb200072e554d/7c_iLKJn.jpg', id: '5bc74e16c3f6050008c61638', _type: 'file', _links: { application: { href: '/applications/5b9297591fefb200072e554d' }, files: { href: '/applications/5b9297591fefb200072e554d/files' }, self: { href: '/applications/5b9297591fefb200072e554d/file/' } }
+            name: '7c_iLKJn.jpg', parentDirectory: '/', type: 'file', fileSize: 21593, contentType: 'image/jpeg', authorType: 'user', authorId: '59a41ff6b36c040007c6e2eb', applicationId: '5b9297591fefb200072e554d', lastUpdated: '2018-10-17T14:58:32.487Z', creationDate: '2018-10-17T14:58:30.700Z', status: 'completed', s3etag: 'fc5e038d38a57032085441e7fe7010b0', url: 'https://files.onwegnology.com/5b9297591fefb200072e554d/7c_iLKJn.jpg', id: '5bc74e16c3f6050008c61638', _type: 'file', _links: { application: { href: '/applications/5b9297591fefb200072e554d' }, files: { href: '/applications/5b9297591fefb200072e554d/files' }, self: { href: '/applications/5b9297591fefb200072e554d/file/' } }
           }, {
-            name: '30442479_1804907812955173_2594707246956191799_n.jpg', parentDirectory: '/', type: 'file', fileSize: 104606, contentType: 'image/jpeg', authorType: 'user', authorId: '59a41ff6b36c040007c6e2eb', applicationId: '5b9297591fefb200072e554d', lastUpdated: '2018-10-19T19:19:08.479Z', creationDate: '2018-10-19T19:19:04.642Z', status: 'completed', s3etag: 'fc5e038d38a57032085441e7fe7010b0', url: 'https://files.onlosant.com/5b9297591fefb200072e554d/30442479_1804907812955173_2594707246956191799_n.jpg', id: '5bca2e28ef9fb00007f3938e', _type: 'file', _links: { application: { href: '/applications/5b9297591fefb200072e554d' }, files: { href: '/applications/5b9297591fefb200072e554d/files' }, self: { href: '/applications/5b9297591fefb200072e554d/file/' } }
+            name: '30442479_1804907812955173_2594707246956191799_n.jpg', parentDirectory: '/', type: 'file', fileSize: 104606, contentType: 'image/jpeg', authorType: 'user', authorId: '59a41ff6b36c040007c6e2eb', applicationId: '5b9297591fefb200072e554d', lastUpdated: '2018-10-19T19:19:08.479Z', creationDate: '2018-10-19T19:19:04.642Z', status: 'completed', s3etag: 'fc5e038d38a57032085441e7fe7010b0', url: 'https://files.onwegnology.com/5b9297591fefb200072e554d/30442479_1804907812955173_2594707246956191799_n.jpg', id: '5bca2e28ef9fb00007f3938e', _type: 'file', _links: { application: { href: '/applications/5b9297591fefb200072e554d' }, files: { href: '/applications/5b9297591fefb200072e554d/files' }, self: { href: '/applications/5b9297591fefb200072e554d/file/' } }
           }],
           perPage: 100,
           page: 0,
@@ -209,12 +209,12 @@ describe('Files Commands', () => {
         lastUpdated: '2018-10-19T20:24:19.041Z',
         creationDate: '2018-10-19T20:24:19.039Z',
         status: 'pending',
-        url: 'https://files.onlosant.com/5b9297591fefb200072e554d/newFile.txt',
+        url: 'https://files.onwegnology.com/5b9297591fefb200072e554d/newFile.txt',
         id: '5bca3d7330307f0007c0e4e3',
         upload: {
-          url: 'https://s3.us-west-2.amazonaws.com/files.onlosant.com',
+          url: 'https://s3.us-west-2.amazonaws.com/files.onwegnology.com',
           fields: {
-            'Content-Type': 'text/plain', 'key': '5b9297591fefb200072e554d/newFile.txt', 'bucket': 'files.onlosant.com', 'X-Amz-Algorithm': 'AWS4-HMAC-SHA256', 'X-Amz-Credential': 'AKIAI3D42VHS4PYVKJ3Q/20181019/us-west-2/s3/aws4_request', 'X-Amz-Date': '20181019T202419Z', 'Policy': 'eyJleHBpcmF0aW9uIjoiMjAxOC0xMC0xOVQyMToyNDoxOVoiLCJjb25kaXRpb25zIjpbeyJDb250ZW50LVR5cGUiOiJ0ZXh0L3BsYWluIn0seyJrZXkiOiI1NjhiZWVkZWI0MzZhYjAxMDA3YmU1M2QvbmV3RmlsZS50eHQifSx7ImJ1Y2tldCI6ImZpbGVzLm9ubG9zYW50LmNvbSJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFJM0Q0MlZIUzRQWVZLSjNRLzIwMTgxMDE5L3VzLXdlc3QtMi9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDE4MTAxOVQyMDI0MTlaIn1dfQ==', 'X-Amz-Signature': 'cdfcf79864d1ed0e32a1bc864a201e986db8793d68baeea4bee5c7252866c2c4'
+            'Content-Type': 'text/plain', 'key': '5b9297591fefb200072e554d/newFile.txt', 'bucket': 'files.onwegnology.com', 'X-Amz-Algorithm': 'AWS4-HMAC-SHA256', 'X-Amz-Credential': 'AKIAI3D42VHS4PYVKJ3Q/20181019/us-west-2/s3/aws4_request', 'X-Amz-Date': '20181019T202419Z', 'Policy': 'eyJleHBpcmF0aW9uIjoiMjAxOC0xMC0xOVQyMToyNDoxOVoiLCJjb25kaXRpb25zIjpbeyJDb250ZW50LVR5cGUiOiJ0ZXh0L3BsYWluIn0seyJrZXkiOiI1NjhiZWVkZWI0MzZhYjAxMDA3YmU1M2QvbmV3RmlsZS50eHQifSx7ImJ1Y2tldCI6ImZpbGVzLm9ubG9zYW50LmNvbSJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFJM0Q0MlZIUzRQWVZLSjNRLzIwMTgxMDE5L3VzLXdlc3QtMi9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDE4MTAxOVQyMDI0MTlaIn1dfQ==', 'X-Amz-Signature': 'cdfcf79864d1ed0e32a1bc864a201e986db8793d68baeea4bee5c7252866c2c4'
           }
         },
         _type: 'file',
@@ -257,12 +257,12 @@ describe('Files Commands', () => {
         lastUpdated: '2018-10-19T20:24:19.041Z',
         creationDate: '2018-10-19T20:24:19.039Z',
         status: 'pending',
-        url: 'https://files.onlosant.com/5b9297591fefb200072e554d/newFile.txt',
+        url: 'https://files.onwegnology.com/5b9297591fefb200072e554d/newFile.txt',
         id: '5bca3d7330307f0007c0e4e4',
         upload: {
-          url: 'https://s3.us-west-2.amazonaws.com/files.onlosant.com',
+          url: 'https://s3.us-west-2.amazonaws.com/files.onwegnology.com',
           fields: {
-            'Content-Type': 'text/plain', 'key': '5b9297591fefb200072e554d/newFile.txt', 'bucket': 'files.onlosant.com', 'X-Amz-Algorithm': 'AWS4-HMAC-SHA256', 'X-Amz-Credential': 'AKIAI3D42VHS4PYVKJ3Q/20181019/us-west-2/s3/aws4_request', 'X-Amz-Date': '20181019T202419Z', 'Policy': 'eyJleHBpcmF0aW9uIjoiMjAxOC0xMC0xOVQyMToyNDoxOVoiLCJjb25kaXRpb25zIjpbeyJDb250ZW50LVR5cGUiOiJ0ZXh0L3BsYWluIn0seyJrZXkiOiI1NjhiZWVkZWI0MzZhYjAxMDA3YmU1M2QvbmV3RmlsZS50eHQifSx7ImJ1Y2tldCI6ImZpbGVzLm9ubG9zYW50LmNvbSJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFJM0Q0MlZIUzRQWVZLSjNRLzIwMTgxMDE5L3VzLXdlc3QtMi9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDE4MTAxOVQyMDI0MTlaIn1dfQ==', 'X-Amz-Signature': 'cdfcf79864d1ed0e32a1bc864a201e986db8793d68baeea4bee5c7252866c2c4'
+            'Content-Type': 'text/plain', 'key': '5b9297591fefb200072e554d/newFile.txt', 'bucket': 'files.onwegnology.com', 'X-Amz-Algorithm': 'AWS4-HMAC-SHA256', 'X-Amz-Credential': 'AKIAI3D42VHS4PYVKJ3Q/20181019/us-west-2/s3/aws4_request', 'X-Amz-Date': '20181019T202419Z', 'Policy': 'eyJleHBpcmF0aW9uIjoiMjAxOC0xMC0xOVQyMToyNDoxOVoiLCJjb25kaXRpb25zIjpbeyJDb250ZW50LVR5cGUiOiJ0ZXh0L3BsYWluIn0seyJrZXkiOiI1NjhiZWVkZWI0MzZhYjAxMDA3YmU1M2QvbmV3RmlsZS50eHQifSx7ImJ1Y2tldCI6ImZpbGVzLm9ubG9zYW50LmNvbSJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFJM0Q0MlZIUzRQWVZLSjNRLzIwMTgxMDE5L3VzLXdlc3QtMi9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDE4MTAxOVQyMDI0MTlaIn1dfQ==', 'X-Amz-Signature': 'cdfcf79864d1ed0e32a1bc864a201e986db8793d68baeea4bee5c7252866c2c4'
           }
         },
         _type: 'file',
@@ -291,7 +291,7 @@ describe('Files Commands', () => {
         'max-age=31536000' ]);
     for (let i=0; i < 2; i++) {
       nock('https://s3.us-west-2.amazonaws.com:443', { encodedQueryParams: true })
-        .post('/files.onlosant.com', /.*/)
+        .post('/files.onwegnology.com', /.*/)
         .reply(204, '', [ 'x-amz-id-2',
           'bgtyS9TMwD4MWmaWcRFviQutaZKHdQWv1icmHjVkUeUYByunN4Ajmti3L2Rz0AH2tHJs0CR6y5c=',
           'x-amz-request-id',
@@ -301,7 +301,7 @@ describe('Files Commands', () => {
           'ETag',
           '"5eb63bbbe01eeed093cb22bb8f5acdc3"',
           'Location',
-          'https://s3.us-west-2.amazonaws.com/files.onlosant.com/5b9297591fefb200072e554d%2FnewFile.txt',
+          'https://s3.us-west-2.amazonaws.com/files.onwegnology.com/5b9297591fefb200072e554d%2FnewFile.txt',
           'Server',
           'AmazonS3',
           'Connection',

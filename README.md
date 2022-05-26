@@ -1,9 +1,8 @@
 # WEGnology CLI
-
 ## Description
 
-[WEGnology CLI](https://docs.app.wnology.io/) is a command line tool to help manage your [WEGnology Application](https://docs.app.wnology.io/) and its resources.
-It easily lets you manage [Experience Views](https://docs.app.wnology.io/), [Experience Versions](https://docs.app.wnology.io/), [Files](https://docs.app.wnology.io/), and [Data Tables](https://docs.app.wnology.io/data-tables/overview/) in your Applications.
+[WEGnology CLI](https://docs.app.wnology.io/cli/overview) is a command line tool to help manage your [WEGnology Application](https://docs.app.wnology.io/applications/overview/) and its resources.
+It easily lets you manage [Experience Views](https://docs.app.wnology.io/experiences/views/), [Experience Versions](https://docs.app.wnology.io/experiences/versions/), [Files](https://docs.app.wnology.io/applications/files/), and [Data Tables](https://docs.app.wnology.io/data-tables/overview/) in your Applications.
 
 ## Installation
 
@@ -22,6 +21,7 @@ wegnology [options] [command]
 ## Commands
 
 * [login](#login)
+* [set-token](#set-token)
 * [configure](#configure)
 * [experience](#experience)
 * [files](#files)
@@ -29,13 +29,16 @@ wegnology [options] [command]
 
 ### Login
 
-Before you run any other commands, you will want to run `wegnology login` to authenticate with your wegnology account.
-This will ask for the email address and password (and optionally your 2 factor code) for your wegnology account, and store
-an authentication token on your computer.
+Before you run any other commands, you must run `wegnology login` to authenticate with your WEGnology account. This command checks to see if your account is linked to a Single Sign-On (SSO) provider. If so, the command will prompt for a User Token; otherwise it will prompt for the password (and optionally your two-factor code) for your WEGnology account. After either is given successfully, the command will store
+the authentication token on your computer.
+
+### Set-token
+
+The set-token command, `wegnology set-token`, is an alternative way to log in for those users whose account is linked to a Single Sign-On (SSO) provider. This will take the given token, verify that token against the API, and then set it on your user configuration file.
 
 ### Configure
 
-The `wegnology configure` command configures and links the current directory to one of your wegnology Applications. Once you have configured you will notice a few new directories into your current directory. There will be the following directories added:
+The `wegnology configure` command configures and links the current directory to one of your WEGnology Applications. Once you have configured you will notice a few new directories into your current directory. There will be the following directories added:
 
 * experience/components
 * experience/pages
@@ -43,7 +46,7 @@ The `wegnology configure` command configures and links the current directory to 
 * files/
 * dataTables/
 
-This is how the CLI will be able to detect new files, experience views, or data tables that you want to add, update or remove from your wegnology Application. The files directory will contain and reflect the directory and files on your wegnology Application's Files. Similarly, the dataTables directory will contain your wegnology Application's data tables as csv files. and The experience directory is broken down by view type (components, layouts and pages), e.g. if you want to create a new component add this to your components directory, or if you want to remove a page, you will find that page located under experience/pages.
+This is how the CLI will be able to detect new files, experience views, or data tables that you want to add, update or remove from your WEGnology Application. The files directory will contain and reflect the directory and files on your WEGnology Application's Files. Similarly, the dataTables directory will contain your WEGnology Application's data tables as csv files. and The experience directory is broken down by view type (components, layouts and pages), e.g. if you want to create a new component add this to your components directory, or if you want to remove a page, you will find that page located under experience/pages.
 
 ### Experience
 
@@ -137,6 +140,6 @@ The `wegnology datatables` command is how you manage the data tables for a confi
 
 *****
 
-Copyright (c) 2021 WEGnology IoT, Inc
+Copyright (c) 2019 WEGnology
 
-<https://docs.app.wnology.io/>
+<https://docs.app.wnology.io/getting-started/what-is-wegnology/>
