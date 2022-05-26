@@ -1,6 +1,6 @@
 {
   "name": "wegnology-cli",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "WEGnology Command Line Interface",
   "license": "MIT",
   "homepage": "https://github.com/WEGnology/wegnology-cli#readme",
@@ -26,7 +26,9 @@
     "precommit": "lint-staged",
     "test": "mocha test",
     "reinstall": "rm -rf nodes_modules && yarn install",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "docker:prepare": "docker run -t -d --name cli-test node:16-slim //bin/bash && docker cp . cli-test:/app && docker exec cli-test rm /app/node_modules/wegnology-rest && docker cp -L .\\node_modules\\wegnology-rest cli-test:/app/node_modules/wegnology-rest",
+    "docker:test": "docker exec -t cli-test sh -c \"cd /app && npm run test\""
   },
   "repository": {
     "type": "git",
