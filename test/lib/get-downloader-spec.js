@@ -27,7 +27,7 @@ const utils = require('../../lib/utils');
 const nockExperienceView = (items, numNocks = 1) => {
   for (let i = 0; i < numNocks; i++) {
     nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
-      .get('/applications/5b9297591fefb200072e554d/experience/views')
+      .get('/applications/654259a38ba86eb06852263c/experience/views')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: 0, perPage: 1000 })
       .reply(200, {
         count: items.length,
@@ -68,14 +68,14 @@ describe('#getDownloader', () => {
         description: 'description',
         viewType: 'layout',
         body: 'a body',
-        applicationId: '5b9297591fefb200072e554d',
+        applicationId: '654259a38ba86eb06852263c',
         creationDate: '2018-09-07T15:21:01.223Z',
         lastUpdated: '2018-09-07T15:21:01.234Z',
         viewTags: {},
         experienceViewId: '5b92975dc2f8de0006e2ca93',
         id: '5b92975dc2f8de0006e2ca93',
         _type: 'experienceView',
-        _links: { self: { href: '/applications/5b9297591fefb200072e554d/experience/views/5b92975dc2f8de0006e2ca93' } }
+        _links: { self: { href: '/applications/654259a38ba86eb06852263c/experience/views/5b92975dc2f8de0006e2ca93' } }
       }
     ], 4);
 
@@ -131,42 +131,42 @@ describe('#getDownloader', () => {
         description: 'description',
         viewType: 'layout',
         body: 'a body',
-        applicationId: '5b9297591fefb200072e554d',
+        applicationId: '654259a38ba86eb06852263c',
         creationDate: '2018-09-07T15:21:01.223Z',
         lastUpdated: '2018-09-07T15:21:01.234Z',
         viewTags: {},
         experienceViewId: '5b92975dc2f8de0006e2ca91',
         id: '5b92975dc2f8de0006e2ca91',
         _type: 'experienceView',
-        _links: { self: { href: '/applications/5b9297591fefb200072e554d/experience/views/5b92975dc2f8de0006e2ca93' } }
+        _links: { self: { href: '/applications/654259a38ba86eb06852263c/experience/views/5b92975dc2f8de0006e2ca93' } }
       },
       {
         name: 'my:View',
         description: 'description',
         viewType: 'layout',
         body: 'a body',
-        applicationId: '5b9297591fefb200072e554d',
+        applicationId: '654259a38ba86eb06852263c',
         creationDate: '2018-09-07T15:21:01.223Z',
         lastUpdated: '2018-09-07T15:21:01.234Z',
         viewTags: {},
         experienceViewId: '5b92975dc2f8de0006e2ca92',
         id: '5b92975dc2f8de0006e2ca92',
         _type: 'experienceView',
-        _links: { self: { href: '/applications/5b9297591fefb200072e554d/experience/views/5b92975dc2f8de0006e2ca93' } }
+        _links: { self: { href: '/applications/654259a38ba86eb06852263c/experience/views/5b92975dc2f8de0006e2ca93' } }
       },
       {
         name: 'my::View',
         description: 'description',
         viewType: 'layout',
         body: 'a body',
-        applicationId: '5b9297591fefb200072e554d',
+        applicationId: '654259a38ba86eb06852263c',
         creationDate: '2018-09-07T15:21:01.223Z',
         lastUpdated: '2018-09-07T15:21:01.234Z',
         viewTags: {},
         experienceViewId: '5b92975dc2f8de0006e2ca93',
         id: '5b92975dc2f8de0006e2ca93',
         _type: 'experienceView',
-        _links: { self: { href: '/applications/5b9297591fefb200072e554d/experience/views/5b92975dc2f8de0006e2ca93' } }
+        _links: { self: { href: '/applications/654259a38ba86eb06852263c/experience/views/5b92975dc2f8de0006e2ca93' } }
       },
       {
         name: 'my/View',
@@ -180,7 +180,7 @@ describe('#getDownloader', () => {
         experienceViewId: '5b92975dc2f8de0006e2ca94',
         id: '5b92975dc2f8de0006e2ca94',
         _type: 'experienceView',
-        _links: { self: { href: '/applications/5b9297591fefb200072e554d/experience/views/5b92975dc2f8de0006e2ca93' } }
+        _links: { self: { href: '/applications/654259a38ba86eb06852263c/experience/views/5b92975dc2f8de0006e2ca93' } }
       },
       {
         name: ':',
@@ -194,7 +194,7 @@ describe('#getDownloader', () => {
         experienceViewId: '5b92975dc2f8de0006e2ca95',
         id: '5b92975dc2f8de0006e2ca95',
         _type: 'experienceView',
-        _links: { self: { href: '/applications/5b9297591fefb200072e554d/experience/views/5b92975dc2f8de0006e2ca93' } }
+        _links: { self: { href: '/applications/654259a38ba86eb06852263c/experience/views/5b92975dc2f8de0006e2ca93' } }
       }
     ];
     nockExperienceView(exps);
@@ -226,28 +226,28 @@ describe('#getDownloader', () => {
         description: 'description',
         viewType: 'layout',
         body: 'a body',
-        applicationId: '5b9297591fefb200072e554d',
+        applicationId: '654259a38ba86eb06852263c',
         creationDate: '2018-09-07T15:21:01.223Z',
         lastUpdated: '2018-09-07T15:21:01.234Z',
         viewTags: {},
         experienceViewId: '5b92975dc2f8de0006e2ca93',
         id: '5b92975dc2f8de0006e2ca93',
         _type: 'experienceView',
-        _links: { self: { href: '/applications/5b9297591fefb200072e554d/experience/views/5b92975dc2f8de0006e2ca93' } }
+        _links: { self: { href: '/applications/654259a38ba86eb06852263c/experience/views/5b92975dc2f8de0006e2ca93' } }
       },
       {
         name: 'myOtherView',
         description: 'description',
         viewType: 'layout',
         body: localText,
-        applicationId: '5b9297591fefb200072e554d',
+        applicationId: '654259a38ba86eb06852263c',
         creationDate: '2018-09-07T15:21:01.223Z',
         lastUpdated: '2018-09-07T15:21:01.234Z',
         viewTags: {},
         experienceViewId: '5b92975dc2f8de0006e2ca90',
         id: '5b92975dc2f8de0006e2ca90',
         _type: 'experienceView',
-        _links: { self: { href: '/applications/5b9297591fefb200072e554d/experience/views/5b92975dc2f8de0006e2ca93' } }
+        _links: { self: { href: '/applications/654259a38ba86eb06852263c/experience/views/5b92975dc2f8de0006e2ca93' } }
       }
     ];
     nockExperienceView(exps);

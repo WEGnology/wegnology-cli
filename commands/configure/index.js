@@ -1,6 +1,6 @@
 const error = require('error/typed');
 const p = require('commander');
-const { merge, findIndex, propEq } = require('omnibelt');
+const { mergeRight, findIndex, propEq } = require('omnibelt');
 const program = new p.Command('wegnology configure');
 const getApi = require('../../lib/get-api');
 const c = require('chalk');
@@ -86,7 +86,7 @@ const setSkippedExperience = (api, application) => {
   if (!application.ftueTracking) {
     application.ftueTracking = [];
   }
-  const index = findIndex(propEq('name', 'experience'), application.ftueTracking);
+  const index = findIndex(propEq('experience', 'name'), application.ftueTracking);
   const track = { name: 'experience', version: 3, status: 'skipped' };
   if (index === -1) {
     application.ftueTracking.push(track);
@@ -122,10 +122,10 @@ program
     } catch (e) {
       logError(`Failed to write configuration: ${c.bold(e.message)}`);
     }
-    const loadedConfig = merge(userConfig, config);
+    const loadedConfig = mergeRight(userConfig, config);
     loadedConfig.api = api;
     try {
-      const downloaded = await experienceDownload(null, {}, loadedConfig);
+      const downloaded = await experienceDownload(null, {}, {}, loadedConfig);
       if (downloaded) {
         logResult('success', 'Downloaded all experience resources!', 'green');
       } else {
@@ -136,7 +136,7 @@ program
             message: `Do you want to bootstrap your experience for application ${appInfo.name}?`
           }]);
           if (shouldBootstrap) {
-            await experienceBootstrap({}, loadedConfig, appInfo);
+            await experienceBootstrap({}, {}, loadedConfig, appInfo);
           } else {
             await setSkippedExperience(api, appInfo);
           }
@@ -149,7 +149,7 @@ program
     try {
       const { canDownloadFiles } = await inquirer.prompt([{ type: 'confirm', name: 'canDownloadFiles', message: 'Download files now?' }]);
       if (canDownloadFiles) {
-        const downloadedFiles = await filesDownload(null, {}, loadedConfig);
+        const downloadedFiles = await filesDownload(null, {}, {}, loadedConfig);
         if (downloadedFiles) {
           logResult('success', 'Downloaded all of files!', 'green');
         }
@@ -161,7 +161,7 @@ program
     try {
       const { canExportDataTables } = await inquirer.prompt([{ type: 'confirm', name: 'canExportDataTables', message: 'Export data tables now?' }]);
       if (canExportDataTables) {
-        const exportedTables = await dataTablesExport(null, {}, loadedConfig);
+        const exportedTables = await dataTablesExport(null, {}, {}, loadedConfig);
         if (exportedTables) {
           logResult('success', 'Exported all data tables!', 'green');
         }

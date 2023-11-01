@@ -1,6 +1,6 @@
 {
   "name": "wegnology-cli",
-  "version": "1.2.5",
+  "version": "1.3.0",
   "description": "WEGnology Command Line Interface",
   "license": "MIT",
   "homepage": "https://github.com/WEGnology/wegnology-cli#readme",
@@ -17,7 +17,7 @@
     "wegnology": "./bin/wegnology.js"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "scripts": {
     "lint": "esw . --ext .js",
@@ -36,44 +36,42 @@
   },
   "dependencies": {
     "@rjhilgefort/export-dir": "^2.0.0",
+    "axios": "^1.4.0",
     "chalk": "^4.1.1",
-    "chokidar": "^2.1.8",
+    "chokidar": "^3.5.3",
     "cli-table3": "^0.6.0",
-    "commander": "^2.20.3",
-    "csv-stringify": "^5.6.2",
+    "commander": "^10.0.1",
+    "csv-stringify": "^6.3.3",
     "death": "^1.1.0",
     "error": "^7.2.0",
     "find-file-up": "^2.0.1",
     "form-data": "^4.0.0",
-    "fs-extra": "^8.1.0",
-    "glob": "^7.1.6",
-    "inquirer": "^7.1.0",
-    "js-yaml": "^3.12.0",
-    "jsonwebtoken": "^8.5.1",
+    "fs-extra": "^11.1.1",
+    "glob": "^10.2.2",
+    "inquirer": "^8.2.3",
+    "js-yaml": "^3.14.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash-template": "^1.0.0",
-    "wegnology-rest": "2.8.1",
     "mime-types": "^2.1.30",
-    "minimatch": "^3.0.4",
+    "minimatch": "^9.0.0",
     "moment": "^2.29.1",
-    "omnibelt": "^2.0.1",
+    "omnibelt": "^3.1.1",
     "pad": "^3.2.0",
     "proper-lockfile": "^4.1.2",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.6",
     "rollbar": "^2.21.1",
     "sanitize-filename": "^1.6.2",
     "single-line-log": "^1.1.2",
-    "update-notifier": "^4.1.0"
+    "update-notifier": "^5.1.0",
+    "wegnology-rest": "2.12.5"
   },
   "devDependencies": {
-    "@losant/eslint-config-losant": "1.4.3",
-    "husky": "^6.0.0",
-    "lint-staged": "^10.5.1",
-    "mocha": "^8.3.2",
-    "nock": "^13.0.11",
-    "rimraf": "^3.0.2",
+    "@losant/eslint-config-losant": "1.6.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "mocha": "^10.2.0",
+    "nock": "^13.3.1",
     "should": "^13.2.3",
-    "sinon": "^10.0.0"
+    "sinon": "^15.0.4"
   },
   "lint-staged": {
     "*.js": "esw"

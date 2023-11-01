@@ -30,7 +30,7 @@ describe('Data Tables Commands', () => {
     await buildConfig();
     const deferred = defer();
     nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
-      .get('/applications/5b9297591fefb200072e554d/data-tables')
+      .get('/applications/654259a38ba86eb06852263c/data-tables')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: '0', perPage: '1000' })
       .reply(200, {});
     sinon.stub(ssLog, 'stdout').callsFake((message) => {
@@ -50,28 +50,28 @@ describe('Data Tables Commands', () => {
     await buildConfig();
     const deferred = defer();
     nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
-      .get('/applications/5b9297591fefb200072e554d/data-tables')
+      .get('/applications/654259a38ba86eb06852263c/data-tables')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: '0', perPage: '1000' })
       .reply(200, {
         count: 1,
         items: [{
-          name: 'Red', columns: [{ name: 'Col1', dataType: 'string', constraint: 'required' }, { name: 'Col2', dataType: 'string', constraint: 'required' }], applicationId: '5b9297591fefb200072e554d', creationDate: '2019-07-15T15:37:15.044Z', lastUpdated: '2019-07-15T15:37:15.044Z', dataTableId: '5d2c9dab16770d0008c013fb', id: '5d2c9dab16770d0008c013fb', summary: { count: 2, size: 264 }, _type: 'dataTable', _links: { self: { href: '/applications/5b9297591fefb200072e554d/data-tables/5d2c9dab16770d0008c013fb' } }
+          name: 'Red', columns: [{ name: 'Col1', dataType: 'string', constraint: 'required' }, { name: 'Col2', dataType: 'string', constraint: 'required' }], applicationId: '654259a38ba86eb06852263c', creationDate: '2019-07-15T15:37:15.044Z', lastUpdated: '2019-07-15T15:37:15.044Z', dataTableId: '5d2c9dab16770d0008c013fb', id: '5d2c9dab16770d0008c013fb', summary: { count: 2, size: 264 }, _type: 'dataTable', _links: { self: { href: '/applications/654259a38ba86eb06852263c/data-tables/5d2c9dab16770d0008c013fb' } }
         }],
-        applicationId: '5b9297591fefb200072e554d',
+        applicationId: '654259a38ba86eb06852263c',
         perPage: 1000,
         page: 0,
         sortField: 'name',
         sortDirection: 'asc',
         totalCount: 1,
         _type: 'dataTables',
-        _links: { self: { href: '/applications/5b9297591fefb200072e554d/data-tables' } }
+        _links: { self: { href: '/applications/654259a38ba86eb06852263c/data-tables' } }
       });
 
     nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
-      .get('/applications/5b9297591fefb200072e554d/data-tables/5d2c9dab16770d0008c013fb/rows')
+      .get('/applications/654259a38ba86eb06852263c/data-tables/5d2c9dab16770d0008c013fb/rows')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', limit: 1000, offset: 0 })
       .reply(200, {
-        applicationId: '5b9297591fefb200072e554d',
+        applicationId: '654259a38ba86eb06852263c',
         dataTableId: '5d2c9dab16770d0008c013fb',
         query: {},
         limit: 1000,

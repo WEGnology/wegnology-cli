@@ -10,7 +10,7 @@ describe('#ExperienceVersion', function() {
       message = _message;
     });
     nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
-      .get('/applications/5b9297591fefb200072e554d/experience/versions')
+      .get('/applications/654259a38ba86eb06852263c/experience/versions')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, {
         count: 1,
@@ -77,7 +77,7 @@ describe('#ExperienceVersion', function() {
       message = _message;
     });
     const createCall = nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
-      .post('/applications/5b9297591fefb200072e554d/experience/versions')
+      .post('/applications/654259a38ba86eb06852263c/experience/versions')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, {
         version: 'v1.0.0',
@@ -85,14 +85,14 @@ describe('#ExperienceVersion', function() {
       });
 
     const createDomainCall = nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
-      .get('/applications/5b9297591fefb200072e554d/experience/domains')
+      .get('/applications/654259a38ba86eb06852263c/experience/domains')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, {
         items: []
       });
 
     const createSlugCall = nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
-      .get('/applications/5b9297591fefb200072e554d/experience/slugs')
+      .get('/applications/654259a38ba86eb06852263c/experience/slugs')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true' })
       .reply(200, {
         items: []
