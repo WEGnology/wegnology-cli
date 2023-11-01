@@ -10,10 +10,7 @@ const sinon = require('sinon');
 const nock = require('nock');
 const c = require('chalk');
 const pad = require('pad');
-const { promisify } = require('util');
-const rimraf = require('rimraf');
 const program = require('commander');
-const rmDir = promisify(rimraf);
 const locker = require('proper-lockfile');
 const { pathExists, remove } = require('fs-extra');
 const path = require('path');
@@ -62,8 +59,8 @@ const buildUserConfig = () => {
 const buildConfig = async () => {
   await buildUserConfig();
   const config = {
-    applicationId: '5b9297591fefb200072e554d',
-    applicationName: 'Test Application',
+    applicationId: '654259a38ba86eb06852263c',
+    applicationName: '[wegnology-cli] Library tests',
     apiUrl: 'https://api.app.wnology.io'
   };
   return utils.saveConfig(undefined, config); // let it default
@@ -117,7 +114,6 @@ after(async () => {
 });
 
 module.exports = {
-  rmDir,
   nock,
   sinon: sandbox,
   downloadLog,

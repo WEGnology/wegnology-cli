@@ -3,6 +3,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 const program = require('commander');
 const updateNotifier = require('update-notifier');
 const pkg = require('../package.json');
+
 const pgm = program
   .version(pkg.version)
   .description('WEGnology CLI is a command line tool to help manage your WEGnology Application and its resources.')
@@ -13,11 +14,6 @@ const pgm = program
   .command('files', 'Manage Files on WEGnology for your Application.')
   .command('datatables', 'Manage Data Tables on WEGnology for your Application.');
 
-const results = pgm.parse(process.argv);
-
-if (results) {
-  console.error('Unknown command: %s\n', results.args.join(' '));
-  pgm.help();
-}
+pgm.parse(process.argv);
 
 updateNotifier({ pkg }).notify();

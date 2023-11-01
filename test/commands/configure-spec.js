@@ -33,7 +33,7 @@ describe('Configure Commands', () => {
           viewType: 'page',
           layoutId: '5b92975dc2f8de0006e2ca93',
           body: "{{#fillSection \"metaDescription\"}}This is an example home page for your application experience.{{/fillSection}}\n<div class=\"container\">\n  <div class=\"jumbotron\">\n    <h1>Your Experience View!</h1>\n    <p class=\"lead\">\n      This is an example of a change and back down <a target=\"_blank\" href=\"https://docs.wnology.io/experiences/views/\">Experience View</a> we've built for you. It provides many of the common\n      components that most web pages have, like a header, footer, and navigation. You can use this\n      as a launching point for your own custom user interfaces.\n    </p>\n  </div>\n  <p>\n    All Experiences Views start with a <a href=\"https://docs.wnology.io/experiences/views/#layouts\">Layout</a>. The layout includes common items found on\n    all pages, like a header and footer. <a href=\"https://docs.wnology.io/experiences/views/#pages\">Pages</a> are then rendered inside\n    the layout.\n  </p>\n  <p>There are two types of pages available: <a target=\"_blank\" href=\"https://docs.wnology.io/experiences/views/#custom-pages\">Custom</a> and <a target=\"_blank\" href=\"https://docs.wnology.io/experiences/views/#dashboard-pages\">Dashboard</a>.\n    What you're reading now is an example of a custom page. Dashboard pages allow you to embed an\n    existing dashboard, which is a fast way to publish data to your Experience Users.\n  </p>\n  <p>\n    For additional information, please read the <a target=\"_blank\" href=\"https://docs.wnology.io/experiences/walkthrough/views/overview/\">Experience View Walkthrough</a>, which includes\n    detailed instructions for how to build a complete example that includes both custom and\n    dashboard pages.\n  </p>\n  <p>\n    This example is created using <a href=\"https://getbootstrap.com/docs/3.3/\" target=\"_blank\">Twitter Bootstrap</a>, which\n    provides many components, styles, and utilities that make building web pages simple.\n  </p>\n</div>",
-          applicationId: '5b9297591fefb200072e554d',
+          applicationId: '654259a38ba86eb06852263c',
           creationDate: '2018-09-07T15:21:01.465Z',
           lastUpdated: '2018-09-07T20:31:57.217Z',
           viewTags: {},
@@ -42,7 +42,7 @@ describe('Configure Commands', () => {
           version: 'develop',
           layoutName: 'Example Layout',
           _type: 'experienceView',
-          _links: { self: { href: '/applications/5b9297591fefb200072e554d/experience/views/5b92975d376bb800087d1f50' } }
+          _links: { self: { href: '/applications/654259a38ba86eb06852263c/experience/views/5b92975d376bb800087d1f50' } }
         }]
       });
 

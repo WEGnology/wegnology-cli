@@ -16,10 +16,10 @@ const REMOTE_STATUS_PARAMS = [ template('views/${viewType}s/${name}.hbs'), 'body
 describe('#getStatusFunc', () => {
   it('should log out that there are no local files found', async () => {
     nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
-      .get('/applications/5b9297591fefb200072e554d/experience/views')
+      .get('/applications/654259a38ba86eb06852263c/experience/views')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: 0, perPage: 1000 })
       .reply(200, {
-        count: 0, items: [], applicationId: '5b9297591fefb200072e554d', perPage: 100, page: 0, sortField: 'name', sortDirection: 'asc', totalCount: 0, _type: 'experienceViews', _links: { self: { href: '/applications/5b9297591fefb200072e554d/experience/views' } }
+        count: 0, items: [], applicationId: '654259a38ba86eb06852263c', perPage: 100, page: 0, sortField: 'name', sortDirection: 'asc', totalCount: 0, _type: 'experienceViews', _links: { self: { href: '/applications/654259a38ba86eb06852263c/experience/views' } }
       }, [ 'Date',
         'Mon, 10 Sep 2018 16:44:05 GMT',
         'Content-Type',
@@ -53,7 +53,7 @@ describe('#getStatusFunc', () => {
   it('should log out that there are new remote files', async () => {
     const spy = sinon.spy(log, 'stdout');
     nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
-      .get('/applications/5b9297591fefb200072e554d/experience/views')
+      .get('/applications/654259a38ba86eb06852263c/experience/views')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: 0, perPage: 1000 })
       .reply(200, {
         count: 1,
@@ -63,14 +63,14 @@ describe('#getStatusFunc', () => {
             description: 'description',
             viewType: 'layout',
             body: 'a body',
-            applicationId: '5b9297591fefb200072e554d',
+            applicationId: '654259a38ba86eb06852263c',
             creationDate: '2018-09-07T15:21:01.223Z',
             lastUpdated: '2018-09-07T15:21:01.234Z',
             viewTags: {},
             experienceViewId: '5b92975dc2f8de0006e2ca93',
             id: '5b92975dc2f8de0006e2ca93',
             _type: 'experienceView',
-            _links: { self: { href: '/applications/5b9297591fefb200072e554d/experience/views/5b92975dc2f8de0006e2ca93' } }
+            _links: { self: { href: '/applications/654259a38ba86eb06852263c/experience/views/5b92975dc2f8de0006e2ca93' } }
           }
         ]
       },
@@ -112,7 +112,7 @@ describe('#getStatusFunc', () => {
     await writeFile('./views/layouts/Example Layout.hbs', 'body');
     const spy = sinon.spy(log, 'stdout');
     nock('https://api.app.wnology.io:443', { encodedQueryParams: true })
-      .get('/applications/5b9297591fefb200072e554d/experience/views')
+      .get('/applications/654259a38ba86eb06852263c/experience/views')
       .query({ _actions: 'false', _links: 'true', _embedded: 'true', page: 0, perPage: 1000 })
       .reply(200, {
         count: 1,
@@ -122,14 +122,14 @@ describe('#getStatusFunc', () => {
             description: 'description',
             viewType: 'layout',
             body: 'a body',
-            applicationId: '5b9297591fefb200072e554d',
+            applicationId: '654259a38ba86eb06852263c',
             creationDate: '2018-09-07T15:21:01.223Z',
             lastUpdated: '2018-09-07T15:21:01.234Z',
             viewTags: {},
             experienceViewId: '5b92975dc2f8de0006e2ca93',
             id: '5b92975dc2f8de0006e2ca93',
             _type: 'experienceView',
-            _links: { self: { href: '/applications/5b9297591fefb200072e554d/experience/views/5b92975dc2f8de0006e2ca93' } }
+            _links: { self: { href: '/applications/654259a38ba86eb06852263c/experience/views/5b92975dc2f8de0006e2ca93' } }
           }
         ]
       },

@@ -2,25 +2,17 @@ const { fromFiles } = require('@rjhilgefort/export-dir');
 const commands = Object.values(fromFiles(null, __dirname));
 const commonCommands = Object.values(require('../common'));
 const p = require('commander');
-const program = new p.Command('wegnology experience');
-const printHelp = require('../../lib/print-help');
+const program = new p.Command('wegnology experience'); //.storeOptionsAsProperties();
 
 program.description('Manages your WEGnology Application\'s Experience Views, and Versions from the command line.');
+program.showHelpAfterError();
 
-const help =  [];
 commands.forEach((command) => {
-  const { helpLines } = command(program) || {};
-  if (helpLines) {
-    help.push(...helpLines);
-  }
+  return command(program) || {};
 });
 
 commonCommands.forEach((command) => {
-  const { helpLines } = command('experience', program) || {};
-  if (helpLines) {
-    help.push(...helpLines);
-  }
+  return command('experience', program) || {};
 });
 
-printHelp(program, help);
 module.exports = program;

@@ -1,6 +1,6 @@
 const { buildUserConfig, nock } = require('../common');
 const utils     = require('../../lib/utils');
-const { merge } = require('omnibelt');
+const { mergeRight } = require('omnibelt');
 const { writeFile, remove, pathExists } = require('fs-extra');
 const should = require('should');
 const path = require('path');
@@ -40,14 +40,14 @@ describe('utils', () => {
     it('.saveConfig and .loadConfig', async () => {
       const config = {
         apiUrl: 'https://api.app.wnology.io',
-        applicationId: '5b9297591fefb200072e554d'
+        applicationId: '654259a38ba86eb06852263c'
       };
       await utils.saveConfig(file, config);
       await buildUserConfig();
       const result = await utils.loadConfig(file);
       should.exist(result.api);
       delete result.api;
-      result.should.deepEqual(merge(config, { file, apiToken: 'token', appUrl: 'https://app.wnology.io', endpointDomain: 'on.wegnology.com' }));
+      result.should.deepEqual(mergeRight(config, { file, apiToken: 'token', appUrl: 'https://app.wnology.io', endpointDomain: 'on.wegnology.com' }));
     });
     it('.loadConfig should update old config files', async () => {
       process.env.WEGNOLOGY_API_URL = 'https://host.com';
@@ -67,7 +67,7 @@ describe('utils', () => {
         }
       });
       const config = {
-        applicationId: '5b9297591fefb200072e554d',
+        applicationId: '654259a38ba86eb06852263c',
         apiUrl: 'https://host.com'
       };
       await utils.saveConfig(file, config);
@@ -76,7 +76,7 @@ describe('utils', () => {
       delete result.api;
       result.should.deepEqual({
         file,
-        applicationId: '5b9297591fefb200072e554d',
+        applicationId: '654259a38ba86eb06852263c',
         apiUrl: 'https://host.com',
         endpointDomain: 'on.host.com',
         appUrl: 'https://app.host.com',
